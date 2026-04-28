@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - BabyGlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+  <style>
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+      /* mobile safety */
+    }
+
+    .footer-socials a {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      /* prevent shrink */
+      border-radius: 50%;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-socials i {
+      font-size: 18px;
+      line-height: 1;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Hover Effect */
+    .footer-socials a:hover {
+      background: #ff7e9d;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(255, 126, 157, 0.3);
+    }
+
+    .footer-socials a:hover i {
+      color: #fff;
+    }
+
+    /* Mobile Optimization */
+    @media (max-width: 480px) {
+      .footer-socials {
+        justify-content: center;
+      }
+    }
+  </style>
+
+  <header class="header" id="main-header">
+    <div class="container header-container">
+      <button class="menu-toggle" id="menu-toggle"><i data-lucide="menu"></i></button>
+      <a href="index.html" class="logo"><span>Baby</span>Glow</a>
+      <div class="search-container">
+        <input type="text" placeholder="Search baby products..." class="search-input">
+        <button class="search-button"><i data-lucide="search"></i></button>
+      </div>
+      <nav class="nav-actions" id="nav-actions">
+        <a href="cart.html" class="nav-item">
+          <div class="cart-icon-wrapper"><i data-lucide="shopping-cart"></i><span class="cart-badge"
+              id="cart-count">0</span></div>
+          <span class="nav-label">Cart</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container section-padding">
+      <div class="product-detail-grid" id="product-detail-container">
+        <div style="grid-column: 1 / -1; text-align: center; padding: 100px;">
+          <h2>Loading...</h2>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-column">
+        <h3 class="footer-logo"><span>Baby</span>Glow</h3>
+        <p class="footer-description">
+          Safe and comfortable products for your little one. Our mission is to make parenting easier and more joyful.
+        </p>
+        <div class="footer-socials">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="category.html?category=diapers">Diapers</a></li>
+          <li><a href="category.html?category=toys">Toys & Games</a></li>
+          <li><a href="category.html?category=clothing">Baby Clothing</a></li>
+          <li><a href="category.html?category=feeding">Feeding & Nursing</a></li>
+          <li><a href="category.html?category=bath">Bath & Skin</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Customer Service</h4>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Returns & Exchanges</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="javascript:void(0)" onclick="trackOrder()">Track Order</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contact Info</h4>
+        <ul class="contact-list">
+          <li><i data-lucide="map-pin" class="footer-icon"></i><span>123 Baby Lane, Joyful City</span></li>
+          <li><i data-lucide="phone" class="footer-icon"></i><span>+1 (234) 567-890</span></li>
+          <li><i data-lucide="mail" class="footer-icon"></i><span>support@babyglow.com</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>&copy; 2024 BabyGlow. All rights reserved.</p>
+        <div class="payments"><span>Direct Order via WhatsApp</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+  <script>
+    lucide.createIcons();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id') || '1';
+      const product = PRODUCTS.find(p => p.id === productId) || PRODUCTS[0];
+
+      if (product) {
+        document.title = `${product.name} - BabyGlow`;
+        const container = document.getElementById('product-detail-container');
+
+        const cartItem = cart.find(item => item.id === product.id);
+        const actionHTML = cartItem ? `
+          <div class="quantity-control" style="width: 150px; height: 50px;">
+            <button class="qty-btn" style="width: 50px;" onclick="updateDetailQuantity('${product.id}', -1)">-</button>
+            <span class="qty-val" id="detail-qty-val" style="font-size: 18px;">${cartItem.quantity}</span>
+            <button class="qty-btn" style="width: 50px;" onclick="updateDetailQuantity('${product.id}', 1)">+</button>
+          </div>
+        ` : `
+          <button class="product-add-to-cart-btn" id="add-to-cart-main-btn" onclick="addDetailToCart('${product.id}')">
+            <i data-lucide="shopping-cart"></i>
+            Add to Cart
+          </button>
+        `;
+
+        container.innerHTML = `
+          <div class="product-gallery">
+            <div class="product-main-image">
+              <img src="${product.image}" alt="${product.name}" id="main-img">
+              ${product.discount ? `<span class="discount-badge" style="font-size: 14px; padding: 6px 12px;">${product.discount}</span>` : ''}
+            </div>
+            <div class="product-thumbnails">
+              <div class="product-thumbnail active" onclick="switchImage('${product.image}', this)">
+                <img src="${product.image}" alt="Thumbnail">
+              </div>
+            </div>
+          </div>
+
+          <div class="product-info">
+            <span class="product-category">${product.category}</span>
+            <h1 class="product-title">${product.name}</h1>
+            
+            <div class="product-rating-row">
+              <div class="product-rating">
+                <i data-lucide="star" style="fill: #FFD700; color: #FFD700;"></i>
+                <i data-lucide="star" style="fill: #FFD700; color: #FFD700;"></i>
+                <i data-lucide="star" style="fill: #FFD700; color: #FFD700;"></i>
+                <i data-lucide="star" style="fill: #FFD700; color: #FFD700;"></i>
+                <i data-lucide="star" style="color: #FFD700;"></i>
+              </div>
+              <span>(Top Rated)</span>
+            </div>
+
+            <div class="product-price-row">
+              <div style="display: flex; align-items: baseline; gap: 10px;">
+                <span class="product-price-large">₹${product.price.toLocaleString('en-IN')}</span>
+                ${product.oldPrice ? `<span style="text-decoration: line-through; color: var(--text-muted); font-size: 18px;">₹${product.oldPrice.toLocaleString('en-IN')}</span>` : ''}
+              </div>
+              <span class="product-stock-badge">Ready to Ship</span>
+            </div>
+
+            <p class="product-description-text">${product.description}</p>
+
+            <div class="product-purchase-actions" id="product-action-wrapper">
+              ${actionHTML}
+            </div>
+
+            <div class="product-features-grid">
+              <div class="product-feature-item">
+                <i data-lucide="truck"></i>
+                <div><strong>Fast Shipping</strong><p>Across all major cities</p></div>
+              </div>
+              <div class="product-feature-item">
+                <i data-lucide="shield-check"></i>
+                <div><strong>Quality Guaranteed</strong><p>Premium safety standards</p></div>
+              </div>
+            </div>
+          </div>
+        `;
+        lucide.createIcons();
+      }
+    });
+
+    function addDetailToCart(id) {
+      const product = PRODUCTS.find(p => p.id === id);
+      if (product) {
+        addToCart(product.id, product.name, product.price, product.image, 1);
+        renderDetailActions(id);
+      }
+    }
+
+    function updateDetailQuantity(id, change) {
+      updateQuantity(id, change);
+      renderDetailActions(id);
+    }
+
+    function renderDetailActions(id) {
+      const cartItem = cart.find(item => item.id === id);
+      const wrapper = document.getElementById('product-action-wrapper');
+      if (cartItem) {
+        wrapper.innerHTML = `
+          <div class="quantity-control" style="width: 150px; height: 50px;">
+            <button class="qty-btn" style="width: 50px;" onclick="updateDetailQuantity('${id}', -1)">-</button>
+            <span class="qty-val" style="font-size: 18px;">${cartItem.quantity}</span>
+            <button class="qty-btn" style="width: 50px;" onclick="updateDetailQuantity('${id}', 1)">+</button>
+          </div>
+        `;
+      } else {
+        const product = PRODUCTS.find(p => p.id === id);
+        wrapper.innerHTML = `
+          <button class="product-add-to-cart-btn" onclick="addDetailToCart('${id}')">
+            <i data-lucide="shopping-cart"></i>
+            Add to Cart
+          </button>
+        `;
+        lucide.createIcons();
+      }
+    }
+
+    function switchImage(src, el) {
+      const mainImg = document.getElementById('main-img');
+      if (mainImg) mainImg.src = src;
+      document.querySelectorAll('.product-thumbnail').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+    }
+  </script>
+</body>
+
+</html>

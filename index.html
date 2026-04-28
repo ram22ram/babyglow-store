@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BabyGlow - Premium Care for Your Little One</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+  <style>
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+      /* mobile safety */
+    }
+
+    .footer-socials a {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      /* prevent shrink */
+      border-radius: 50%;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-socials i {
+      font-size: 18px;
+      line-height: 1;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Hover Effect */
+    .footer-socials a:hover {
+      background: #ff7e9d;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(255, 126, 157, 0.3);
+    }
+
+    .footer-socials a:hover i {
+      color: #fff;
+    }
+
+    /* Mobile Optimization */
+    @media (max-width: 480px) {
+      .footer-socials {
+        justify-content: center;
+      }
+    }
+  </style>
+
+  <header class="header" id="main-header">
+    <div class="container header-container">
+      <button class="menu-toggle" id="menu-toggle"><i data-lucide="menu"></i></button>
+      <a href="index.html" class="logo"><span>Baby</span>Glow</a>
+      <div class="search-container">
+        <input type="text" placeholder="Search baby products..." class="search-input">
+        <button class="search-button"><i data-lucide="search"></i></button>
+      </div>
+      <nav class="nav-actions" id="nav-actions">
+        <a href="cart.html" class="nav-item">
+          <div class="cart-icon-wrapper">
+            <i data-lucide="shopping-cart"></i>
+            <span class="cart-badge" id="cart-count">0</span>
+          </div>
+          <span class="nav-label">Cart</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-wrapper">
+        <div class="hero-image" style="background-image: url('images/hero_banner_1.png');"></div>
+        <div class="hero-content">
+          <div class="container">
+            <div class="hero-text-block">
+              <span class="hero-badge">Trusted by Parents</span>
+              <h1>The Best Care for <span>Your Little One</span></h1>
+              <p>Discover our premium range of baby essentials designed with love and safety in mind. Up to 40% off on
+                featured collections today!</p>
+              <div class="hero-actions">
+                <a href="category.html" class="primary-btn">Shop Now</a>
+                <a href="category.html?category=offers" class="secondary-btn">View Offers</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section-padding fade-in">
+      <div class="category-header">
+        <h2>Shop by <span>Category</span></h2>
+        <a href="category.html" class="view-all">View All</a>
+      </div>
+
+      <div class="category-grid">
+        <a href="category.html?category=diapers" class="category-card">
+          <div class="category-icon-wrapper" style="background-color: #E3F2FD;">
+            <div class="category-icon">👶</div>
+          </div>
+          <h3>Diapers</h3>
+        </a>
+        <a href="category.html?category=toys" class="category-card">
+          <div class="category-icon-wrapper" style="background-color: #FFF3E0;">
+            <div class="category-icon">🧸</div>
+          </div>
+          <h3>Toys</h3>
+        </a>
+        <a href="category.html?category=clothing" class="category-card">
+          <div class="category-icon-wrapper" style="background-color: #F3E5F5;">
+            <div class="category-icon">👕</div>
+          </div>
+          <h3>Clothing</h3>
+        </a>
+        <a href="category.html?category=feeding" class="category-card">
+          <div class="category-icon-wrapper" style="background-color: #E8F5E9;">
+            <div class="category-icon">🍼</div>
+          </div>
+          <h3>Feeding</h3>
+        </a>
+        <a href="category.html?category=bath" class="category-card">
+          <div class="category-icon-wrapper" style="background-color: #E0F7FA;">
+            <div class="category-icon">🛁</div>
+          </div>
+          <h3>Bath</h3>
+        </a>
+        <a href="category.html?category=moms" class="category-card">
+          <div class="category-icon-wrapper" style="background-color: #FFEBEE;">
+            <div class="category-icon">👩</div>
+          </div>
+          <h3>Moms</h3>
+        </a>
+      </div>
+    </section>
+
+    <section class="container section-padding">
+      <div class="category-header">
+        <h2>Featured <span>Arrivals</span></h2>
+      </div>
+
+      <div class="product-grid" id="featured-grid">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-column">
+        <h3 class="footer-logo"><span>Baby</span>Glow</h3>
+        <p class="footer-description">
+          Safe and comfortable products for your little one. Our mission is to make parenting easier and more joyful.
+        </p>
+        <div class="footer-socials">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="category.html?category=diapers">Diapers</a></li>
+          <li><a href="category.html?category=toys">Toys & Games</a></li>
+          <li><a href="category.html?category=clothing">Baby Clothing</a></li>
+          <li><a href="category.html?category=feeding">Feeding & Nursing</a></li>
+          <li><a href="category.html?category=bath">Bath & Skin</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Customer Service</h4>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Returns & Exchanges</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="javascript:void(0)" onclick="trackOrder()">Track Order</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contact Info</h4>
+        <ul class="contact-list">
+          <li><i data-lucide="map-pin" class="footer-icon"></i><span>123 Baby Lane, Joyful City</span></li>
+          <li><i data-lucide="phone" class="footer-icon"></i><span>+1 (234) 567-890</span></li>
+          <li><i data-lucide="mail" class="footer-icon"></i><span>support@babyglow.com</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>&copy; 2024 BabyGlow. All rights reserved.</p>
+        <div class="payments"><span>Direct Order via WhatsApp</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+  <script>
+    lucide.createIcons();
+    document.addEventListener('DOMContentLoaded', () => {
+      const featuredGrid = document.getElementById('featured-grid');
+      // Show first 4 products as featured
+      featuredGrid.innerHTML = PRODUCTS.slice(0, 4).map(p => createProductCard(p)).join('');
+      lucide.createIcons();
+    });
+  </script>
+</body>
+
+</html>
