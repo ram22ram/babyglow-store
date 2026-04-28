@@ -100,7 +100,7 @@ if (menuToggle && navActions) {
   document.addEventListener('click', () => {
     navActions.classList.remove('active');
   });
-  
+
   navActions.addEventListener('click', (e) => {
     e.stopPropagation();
   });
@@ -134,10 +134,10 @@ function addToCart(id, name, price, image, qty = 1) {
   } else {
     cart.push({ id, name, price, image, quantity: qty });
   }
-  
+
   saveCart();
   updateCartCount();
-  
+
   // Requirement: "Add" -> "Added" -> Quantity control
   const containers = document.querySelectorAll(`[data-product-id="${id}"]`);
   containers.forEach(container => {
@@ -152,7 +152,7 @@ function addToCart(id, name, price, image, qty = 1) {
   setTimeout(() => {
     updateProductButtons(id);
   }, 800);
-  
+
   const cartLink = document.querySelector('.nav-item[href="cart.html"]');
   if (cartLink) {
     cartLink.style.transform = 'scale(1.2)';
@@ -173,7 +173,7 @@ function updateQuantity(id, change) {
   if (item) {
     item.quantity += change;
     if (item.quantity > 99) item.quantity = 99;
-    
+
     if (item.quantity <= 0) {
       removeFromCart(id);
     } else {
@@ -192,7 +192,7 @@ function updateQuantity(id, change) {
 function updateProductButtons(productId) {
   const containers = document.querySelectorAll(`[data-product-id="${productId}"]`);
   const cartItem = cart.find(item => item.id === productId);
-  
+
   containers.forEach(container => {
     if (cartItem) {
       container.innerHTML = `
@@ -310,29 +310,29 @@ function placeOrder() {
   }
 
   const orderId = 'BG-' + Math.random().toString(36).substr(2, 6).toUpperCase();
-  
+
   let message = `*NEW ORDER: #${orderId}*\n\n`;
   message += `*Customer Details:*\n`;
   message += `Name: ${name}\n`;
   message += `Phone: ${phone}\n`;
   message += `Address: ${address}\n\n`;
-  
+
   message += `*Items Ordered:*\n`;
   cart.forEach((item, index) => {
     const itemName = item.name.length > 50 ? item.name.substring(0, 47) + '...' : item.name;
     message += `${index + 1}. ${itemName}\n   Qty: ${item.quantity} | Price: ₹${(item.price * item.quantity).toLocaleString('en-IN')}\n`;
   });
-  
+
   const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   message += `\n*TOTAL PAYABLE: ₹${total.toLocaleString('en-IN')}*\n\n`;
   message += `Please confirm the order. Thank you!`;
 
-  const businessPhone = '911234567890'; 
+  const businessPhone = '919406761020';
   const encodedMessage = encodeURIComponent(message);
   const whatsappUrl = `https://wa.me/${businessPhone}?text=${encodedMessage}`;
 
   window.open(whatsappUrl, '_blank');
-  
+
   cart = [];
   saveCart();
   window.location.href = 'index.html';
@@ -391,7 +391,7 @@ function createProductCard(product) {
 // Track Order redirect
 function trackOrder() {
   const message = encodeURIComponent("Hello BabyGlow, I would like to track my order. Please share the status.");
-  window.open(`https://wa.me/911234567890?text=${message}`, '_blank');
+  window.open(`https://wa.me/91919406761020?text=${message}`, '_blank');
 }
 
 // Initialize
@@ -400,10 +400,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('cart-items-container')) {
     renderCart();
   }
-  
+
   const searchBtn = document.querySelector('.search-button');
   if (searchBtn) searchBtn.addEventListener('click', handleSearch);
-  
+
   const searchInput = document.querySelector('.search-input');
   if (searchInput) {
     searchInput.addEventListener('keypress', (e) => {
