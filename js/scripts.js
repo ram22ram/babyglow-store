@@ -1,24 +1,24 @@
 // Real-world Products Data with INR Currency and Offers
 const PRODUCTS = [
   {
-    id: '1',
-    name: 'Premium Care Diapers - Size 1 (80 count)',
+    id: '101',
+    name: 'Dremease Baby Wipes (72 Wipes)',
     category: 'diapers',
-    price: 1299,
-    oldPrice: 1599,
-    discount: '18% OFF',
-    image: 'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&q=80&w=800',
-    description: 'Pampers Premium Care diapers are softest comfort and best skin protection. These diapers are made with a heart-shaped hole layer that pulls wetness and mess away from baby\'s skin to keep them comfortable.'
+    price: 219,
+    oldPrice: 299,
+    discount: '26% OFF',
+    image: 'images/products/baby-wipes-regular-1.png',
+    description: 'Dremease Baby Wipes are 99% water-based and gentle on your baby\'s delicate skin. These wipes are fragrance-free, alcohol-free, and pH balanced, making them safe for use on hands, face, and body. Helps effectively remove dirt and germs while keeping skin soft and moisturized.'
   },
   {
-    id: '2',
-    name: 'Organic Cotton Baby Onesie - Pack of 3',
-    category: 'clothing',
-    price: 899,
-    oldPrice: 1249,
-    discount: '28% OFF',
-    image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=800',
-    description: 'Made from 100% organic cotton, these onesies are gentle on your baby\'s skin. The breathable fabric ensures maximum comfort throughout the day.'
+    id: '102',
+    name: 'Dremease Honey Infused Baby Wipes (72 Wipes)',
+    category: 'diapers',
+    price: 219,
+    oldPrice: 299,
+    discount: '26% OFF',
+    image: 'images/products/baby-wipes-honey-1.png',
+    description: 'Infused with natural honey extracts, Dremease Honey Baby Wipes nourish your baby\'s skin while cleaning. These wipes are 99% water-based, alcohol-free, toxin-free, and safe for sensitive skin. Extra thick and moist wipes help maintain hygiene and softness.'
   },
   {
     id: '3',
@@ -107,7 +107,7 @@ if (menuToggle && navActions) {
 }
 
 // Basic Cart Logic
-let cart = JSON.parse(localStorage.getItem('babyglow_cart')) || [];
+let cart = JSON.parse(localStorage.getItem('primewellness_cart')) || [];
 
 function updateCartCount() {
   const cartCountElement = document.getElementById('cart-count');
@@ -118,7 +118,7 @@ function updateCartCount() {
 }
 
 function saveCart() {
-  localStorage.setItem('babyglow_cart', JSON.stringify(cart));
+  localStorage.setItem('primewellness_cart', JSON.stringify(cart));
 }
 
 function addToCart(id, name, price, image, qty = 1) {
@@ -309,7 +309,7 @@ function placeOrder() {
     return;
   }
 
-  const orderId = 'BG-' + Math.random().toString(36).substr(2, 6).toUpperCase();
+  const orderId = 'PW-' + Math.random().toString(36).substr(2, 6).toUpperCase();
 
   let message = `*NEW ORDER: #${orderId}*\n\n`;
   message += `*Customer Details:*\n`;
@@ -390,7 +390,7 @@ function createProductCard(product) {
 
 // Track Order redirect
 function trackOrder() {
-  const message = encodeURIComponent("Hello BabyGlow, I would like to track my order. Please share the status.");
+  const message = encodeURIComponent("Hello Prime Wellness, I would like to track my order. Please share the status.");
   window.open(`https://wa.me/91919406761020?text=${message}`, '_blank');
 }
 

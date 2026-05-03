@@ -4,71 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping Cart - BabyGlow</title>
+  <title>Shopping Cart - Prime Wellness</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="icon" href="./images/favicon_io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon_io/favicon-16x16.png">
 </head>
 
 <body>
-  <style>
-    .footer-socials {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 15px;
-      flex-wrap: wrap;
-      /* mobile safety */
-    }
-
-    .footer-socials a {
-      width: 40px;
-      height: 40px;
-      min-width: 40px;
-      /* prevent shrink */
-      border-radius: 50%;
-      background: #f5f5f5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .footer-socials i {
-      font-size: 18px;
-      line-height: 1;
-      color: #333;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* Hover Effect */
-    .footer-socials a:hover {
-      background: #ff7e9d;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(255, 126, 157, 0.3);
-    }
-
-    .footer-socials a:hover i {
-      color: #fff;
-    }
-
-    /* Mobile Optimization */
-    @media (max-width: 480px) {
-      .footer-socials {
-        justify-content: center;
-      }
-    }
-  </style>
   <header class="header" id="main-header">
     <div class="container header-container">
       <button class="menu-toggle" id="menu-toggle"><i data-lucide="menu"></i></button>
-      <a href="index.html" class="logo"><span>Baby</span>Glow</a>
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Prime Wellness Logo" class="logo-img">
+      </a>
       <div class="search-container">
         <input type="text" placeholder="Search baby products..." class="search-input">
         <button class="search-button"><i data-lucide="search"></i></button>
@@ -125,36 +79,25 @@
                 </button>
               </div>
 
-              <div id="checkout-form-container"
-                style="display: none; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-color);">
-                <h4 style="margin-bottom: 15px; font-weight: 700; color: var(--text-main);">Shipping Details</h4>
-                <div class="checkout-form-group" style="margin-bottom: 15px;">
-                  <label for="cust-name"
-                    style="display: block; font-size: 14px; margin-bottom: 5px; font-weight: 600;">Full Name</label>
-                  <input type="text" id="cust-name" placeholder="Enter your name"
-                    style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; outline: none;">
+              <div id="checkout-form-container" style="display: none;">
+                <h4>Shipping Details</h4>
+                <div class="checkout-form-group">
+                  <label for="cust-name">Full Name</label>
+                  <input type="text" id="cust-name" placeholder="Enter your name">
                 </div>
-                <div class="checkout-form-group" style="margin-bottom: 15px;">
-                  <label for="cust-phone"
-                    style="display: block; font-size: 14px; margin-bottom: 5px; font-weight: 600;">Phone Number</label>
-                  <input type="tel" id="cust-phone" placeholder="Enter phone number"
-                    style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; outline: none;">
+                <div class="checkout-form-group">
+                  <label for="cust-phone">Phone Number</label>
+                  <input type="tel" id="cust-phone" placeholder="Enter phone number">
                 </div>
-                <div class="checkout-form-group" style="margin-bottom: 20px;">
-                  <label for="cust-address"
-                    style="display: block; font-size: 14px; margin-bottom: 5px; font-weight: 600;">Delivery
-                    Address</label>
-                  <textarea id="cust-address" placeholder="Enter full address" rows="3"
-                    style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-family: inherit; outline: none; resize: none;"></textarea>
+                <div class="checkout-form-group">
+                  <label for="cust-address">Delivery Address</label>
+                  <textarea id="cust-address" placeholder="Enter full address" rows="3"></textarea>
                 </div>
-                <button class="cart-checkout-btn" onclick="placeOrder()"
-                  style="background-color: #25D366; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);">
+                <button class="cart-checkout-btn whatsapp-btn" onclick="placeOrder()">
                   Place Order via WhatsApp
                   <i data-lucide="message-circle"></i>
                 </button>
-                <button onclick="hideCheckoutForm()"
-                  style="width: 100%; background: transparent; color: var(--text-muted); font-size: 13px; margin-top: 12px; text-decoration: underline; border: none; cursor: pointer;">Back
-                  to Summary</button>
+                <button class="back-to-summary-btn" onclick="hideCheckoutForm()">Back to Summary</button>
               </div>
 
               <div class="cart-trust-marks">
@@ -171,7 +114,9 @@
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-column">
-        <h3 class="footer-logo"><span>Baby</span>Glow</h3>
+        <h3 class="footer-logo">
+          <img src="images/logo.png" alt="Prime Wellness Logo" class="footer-logo-img">
+        </h3>
         <p class="footer-description">
           Safe and comfortable products for your little one. Our mission is to make parenting easier and more joyful.
         </p>
@@ -207,13 +152,13 @@
         <ul class="contact-list">
           <li><i data-lucide="map-pin" class="footer-icon"></i><span>123 Baby Lane, Joyful City</span></li>
           <li><i data-lucide="phone" class="footer-icon"></i><span>+1 (234) 567-890</span></li>
-          <li><i data-lucide="mail" class="footer-icon"></i><span>support@babyglow.com</span></li>
+          <li><i data-lucide="mail" class="footer-icon"></i><span>support@primewellness.com</span></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="container footer-bottom-container">
-        <p>&copy; 2024 BabyGlow. All rights reserved.</p>
+        <p>&copy; 2026 Prime Wellness. All rights reserved.</p>
         <div class="payments"><span>Direct Order via WhatsApp</span></div>
       </div>
     </div>

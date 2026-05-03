@@ -1,1 +1,1 @@
-# babyglow-store
+# prime-wellness-store
